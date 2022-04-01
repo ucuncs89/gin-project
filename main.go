@@ -14,6 +14,11 @@ func main() {
 
 	r := gin.Default()
 
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"description": "REST API",
+		})
+	})
 	public := r.Group("/api")
 
 	public.POST("/register", controllers.Register)
